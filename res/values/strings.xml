@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">SampleAdvance</string>
+    <string name="advance.service.base.CountAct">advance/service/base/CountAct</string>
+    <string name="advance.service.base.MusicAct">advance/service/base/MusicAct</string>
+    <string name="advance.ui.customview.TestUiAct">advance/ui/customview/TestUiAct</string>
+    <string name="android.aes.AesAct">android/a24jni/aes/AesAct</string>
+    <string name="android.assets.AssetAct">android/a24jni/assets/AssetAct</string>
+    <string name="android.encrypt.signature.SignatureAct">android/a24jni/encrypt/signature/SignatureAct</string>
+    <string name="android.hello.c.HelloCAct">android/a24jni/hello/c/HelloCAct</string>
+    <string name="android.hello.cpp.HelloCppCAct">android/a24jni/hello/cpp/HelloCppCAct</string>
+    <string name="android.multimedia.image.blur.ImageBlurAct">android/a24jni/multimedia/image/blur/ImageBlurAct</string>
+    <string name="android.multimedia.image.filter.PhotoProcessingAct">android/a24jni/multimedia/image/filter/PhotoProcessingAct</string>
+    <string name="android.multimedia.lame.FormatConversionAct">android/a24jni/multimedia/lame/FormatConversionAct</string>
+    <string name="android.multimedia.lame.AudioRecorderAct">android/a24jni/multimedia/lame/AudioRecorderAct</string>
+    <string name="android.multimedia.speex.SpeechExtendAct">android/a24jni/multimedia/speex/SpeechExtendAct</string>
+    <string name="android.mutual.javacallc.JavacallcAct">android/a24jni/mutual/javacallc/JavacallcAct</string>
+    <string name="android.mutual.ccalljava.CcalljavaAct">android/a24jni/mutual/ccalljava/CcalljavaAct</string>
+    <string name="android.projects.login.LoginEasyAct">android/a24jni/projects/login/LoginEasyAct</string>
+    <string name="android.projects.monitor.MonitorAct">android/a24jni/projects/monitor/MonitorAct</string>
+    <string name="android.projects.sannuo.CanrunningAct">android/a24jni/projects/sannuo/CanrunningAct</string>
+
+</resources>

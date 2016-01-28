@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.zsy.frame.sample.jni"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="21" />
+    
+      <!-- 应用程序用到低功耗蓝牙通讯特性 -->
+    <uses-feature
+        android:name="android.hardware.bluetooth_le"
+        android:required="false" />
+
+    <!-- 允许应用使用网络上报数据 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- 获取WIFI信息 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <!-- 读取设备ID作为设备标识 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- 添加对通讯录的读写操作 -->
+    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <!-- 读取设备的电池状态 -->
+    <uses-permission android:name="android.permission.BATTERY_STATS" />
+    <!-- 写SD权限 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <!-- 获取系统日志 -->
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <!-- 发送粘性广播权限 -->
+    <uses-permission android:name="android.permission.BROADCAST_STICKY" />
+    <!-- 开机启动权限 ,现用于广播接收 -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <!-- 短信获取权限 -->
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <!-- 获取任务堆栈 -->
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <!-- 使用蓝牙的响应权限 -->
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <!-- 相机拍照相关权限 -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <!-- 录音权限 -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+    <application
+        android:name="com.zsy.frame.sample.jni.GlobalApp"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+
+        <!-- 在这里指定了CountSer和CountAct是在同一进程里面执行 -->
+        <service android:name="com.zsy.frame.sample.jni.control.advance.service.base.CountSer" />
+        <!--android:process=":remote" 目前发现进程间通信这里还有点问题-->
+        <service android:name="com.zsy.frame.sample.jni.control.advance.service.base.MusicSer"  />
+
+        <activity
+            android:name="com.zsy.frame.sample.jni.control.base.JNIMainAct"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.zsy.frame.sample.jni.control.advance.service.base.CountAct"
+            android:label="@string/advance.service.base.CountAct" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.zsy.frame.sample.jni.control.advance.service.base.MusicAct"
+            android:label="@string/advance.service.base.MusicAct" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.zsy.frame.sample.jni.control.advance.ui.customview.TestUiAct"
+            android:label="@string/advance.ui.customview.TestUiAct" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.zsy.frame.sample.jni.control.android.aes.AesAct"
+            android:label="@string/android.aes.AesAct" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.zsy.frame.sample.jni.control.android.assets.AssetsAct"
+            android:label="@string/android.assets.AssetAct" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.zsy.frame.sample.jni.control.android.encrypt.signature.SignatureAct"
+            android:label="@string/android.encrypt.signature.SignatureAct" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.zsy.frame.sample.jni.control.android.hello.c.HelloCAct"
+            android:label="@string/android.hello.c.HelloCAct" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.zsy.frame.sample.jni.control.android.hello.cpp.HelloCppCAct"
+            android:label="@string/android.hello.cpp.HelloCppCAct" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.zsy.frame.sample.jni.control.android.multimedia.image.blur.ImageBlurAct"
+            android:label="@string/android.multimedia.image.blur.ImageBlurAct" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+          <activity
+            android:name="com.zsy.frame.sample.jni.control.android.multimedia.image.filter.PhotoProcessingAct"
+            android:label="@string/android.multimedia.image.filter.PhotoProcessingAct" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.zsy.frame.sample.jni.control.android.multimedia.lame.FormatConversionAct"
+            android:label="@string/android.multimedia.lame.FormatConversionAct" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.zsy.frame.sample.jni.control.android.multimedia.lame.AudioRecorderAct"
+            android:label="@string/android.multimedia.lame.AudioRecorderAct" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.zsy.frame.sample.jni.control.android.multimedia.speex.SpeechExtendAct"
+            android:label="@string/android.multimedia.speex.SpeechExtendAct" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.zsy.frame.sample.jni.control.android.mutual.javacallc.JavacallcAct"
+            android:label="@string/android.mutual.javacallc.JavacallcAct" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.zsy.frame.sample.jni.control.android.mutual.ccalljava.CcalljavaAct"
+            android:label="@string/android.mutual.ccalljava.CcalljavaAct" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.zsy.frame.sample.jni.control.android.projects.login.LoginEasyAct"
+            android:label="@string/android.projects.login.LoginEasyAct" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.zsy.frame.sample.jni.control.android.projects.monitor.MonitorAct"
+            android:label="@string/android.projects.monitor.MonitorAct" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.zsy.frame.sample.jni.control.android.projects.sannuo.CanrunningAct"
+            android:label="@string/android.projects.sannuo.CanrunningAct" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
