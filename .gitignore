@@ -5,3 +5,6 @@
 /project.properties
 
 /obj
+/build
+/.gradle
+/.idea
